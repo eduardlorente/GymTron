@@ -1,6 +1,8 @@
 # GymTron
 
 GymTron is a cross-platform mobile application built with .NET MAUI. It follows a Domain-Driven Design (DDD) approach and Clean Architecture principles to ensure a maintainable and scalable codebase.
+This project is created to "play" with dotnet MAUI and try some arquitectures.
+It's not a project por professional usage.
 
 ## Features
 
