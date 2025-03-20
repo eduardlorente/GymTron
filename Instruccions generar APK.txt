@@ -1,0 +1,6 @@
+Instruccions generar APK:
+1. Compilar en mode release
+2. Botó dret sobre projecte GymTron.App -> Publicar
+3. Un cop publicar, seleccionar "Distribuir"
+4. Seleccionar AD HOC
+5. Quan aparegui el password és el de la VISA en llarg
