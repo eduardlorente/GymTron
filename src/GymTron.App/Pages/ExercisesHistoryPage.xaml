@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymTron.App.Pages.ExercisesHistoryPage"
+             Shell.BackgroundColor="#ffbd59"
+             Title="Historial d'Exercicis">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+            <Picker Title="Selecciona un exercici"
+                    ItemsSource="{Binding DistinctExerciseNames}"
+                    SelectedItem="{Binding SelectedExerciseName}"
+                    FontSize="16"
+                    Margin="0,0,0,20"
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    IsEnabled="{Binding ExercisesLoaded}"/>
+
+            <CollectionView ItemsSource="{Binding SelectedExerciseExecutions}"
+                            Margin="0,10,0,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#dddddd"
+                               BackgroundColor="#ffffff"
+                               CornerRadius="10"
+                               Padding="15"
+                               Margin="0,10">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="{Binding CreatedOn, StringFormat='Data: {0:dd/MM/yyyy}'}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="Black" />
+                                <Label Text="{Binding Weight, StringFormat='Pes: {0} kg'}"
+                                       FontSize="16"
+                                       IsVisible="{Binding HasWeight}"
+                                       TextColor="#666666" />
+                                <Label Text="{Binding CurrentRepetitions, StringFormat='Repeticions: {0}'}"
+                                       FontSize="16"
+                                       IsVisible="{Binding HasWeight}"
+                                       TextColor="#666666" />
+                                <Label Text="{Binding DurationInSeconds, StringFormat='Duració: {0} segons'}"
+                                       FontSize="16"
+                                       IsVisible="{Binding HasDuration}"
+                                       TextColor="#666666" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

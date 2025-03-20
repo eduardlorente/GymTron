@@ -1,0 +1,77 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymTron.App.Pages.Modals.CompleteExerciseModal"
+             Shell.BackgroundColor="#ffbd59"
+             xmlns:converters="clr-namespace:GymTron.App.Converters"
+             Title="Completar exercisi">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:BoolToColorConverter x:Key="BoolToColorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20" Spacing="15">
+
+                <Label Text="Completa els valors de l'exercisi" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+                <Frame BorderColor="Gray" CornerRadius="10" Padding="15" IsVisible="{Binding IsDurationExercise}">
+                    <StackLayout Spacing="10">
+                        <Label Text="Duració (en segons):" FontSize="18" />
+                        <Entry Keyboard="Numeric" Text="{Binding Duration}" Margin="0,5,0,0" Placeholder="Introdueix la duració"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BorderColor="Gray" CornerRadius="10" Padding="15" IsVisible="{Binding IsWeightExercise}">
+                    <StackLayout Spacing="10">
+                        <Label Text="Pes (kg):" FontSize="18" />
+                        <Entry Keyboard="Numeric" Text="{Binding Weight}" Margin="0,5,0,0" Placeholder="Introdueix el pes"/>
+                        <Label Text="Repeticions:" FontSize="18" />
+                        <Entry Keyboard="Numeric" Text="{Binding Repetitions}" Margin="0,5,0,0" Placeholder="Introdueix les repeticions"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BorderColor="Gray" CornerRadius="10" Padding="15">
+                    <StackLayout>
+                        <Label Text="Dificultat:" FontSize="18" />
+                        <RadioButton Content="Fàcil" Value="Easy" GroupName="Difficulty" IsChecked="{Binding SelectedEasyDifficulty}"/>
+                        <RadioButton Content="Normal" Value="Regular" GroupName="Difficulty" IsChecked="{Binding SelectedRegularDifficulty}"/>
+                        <RadioButton Content="Dur" Value="Hard" GroupName="Difficulty" IsChecked="{Binding SelectedHardDifficulty}"/>
+                        <RadioButton Content="Molt dur" Value="VeryHard" GroupName="Difficulty" IsChecked="{Binding SelectedReallyHardDifficulty}"/>
+
+                        <HorizontalStackLayout Margin="0,10,0,0">
+                            <CheckBox IsChecked="{Binding IncreaseWeight}" />
+                            <Label Text="Pujar pes" VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout>
+                            <CheckBox IsChecked="{Binding IncreaseRepetitions}" />
+                            <Label Text="Pujar repeticions" VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <Label Text="Observacions:" FontSize="18" Margin="0,10,0,5"/>
+                <Editor Text="{Binding Observations}" HeightRequest="100" Placeholder="Escriu aquí les teves observacions..." Margin="0,0,0,0"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Button Grid.Row="1" 
+                Text="Completar" 
+                Command="{Binding CompleteCommand}" 
+                BackgroundColor="Green" 
+                TextColor="White" 
+                CornerRadius="10" 
+                Margin="20,10" 
+                HorizontalOptions="Fill" />
+    </Grid>
+
+</ContentPage>

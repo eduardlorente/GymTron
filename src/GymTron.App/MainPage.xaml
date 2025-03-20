@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymTron.App.MainPage"
+             BackgroundImageSource="background_image.png"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="20">
+
+        <!-- Buttons -->
+        <Button 
+            Text="ENTRENAMENT" 
+            BackgroundColor="#ffbd59"
+            TextColor="Black"
+            CornerRadius="20"
+            WidthRequest="300"
+            HeightRequest="50"
+            FontSize="18"
+            Clicked="Training_Clicked" />
+
+        <Button 
+            Text="HISTÒRIC ENTRENAMENTS" 
+            BackgroundColor="#ffbd59"
+            TextColor="Black"
+            CornerRadius="20"
+            WidthRequest="300"
+            HeightRequest="50"
+            FontSize="18"
+            Clicked="TrainingHistory_Clicked" />
+
+        <Button 
+            Text="HISTÒRIC EXERCISIS" 
+            BackgroundColor="#ffbd59"
+            TextColor="Black"
+            CornerRadius="20"
+            WidthRequest="300"
+            HeightRequest="50"
+            FontSize="18"
+            Clicked="ExerciseHistory_Clicked" />
+
+        <Button 
+            Text="MESURES" 
+            BackgroundColor="#ffbd59"
+            TextColor="Black"
+            CornerRadius="20"
+            WidthRequest="300"
+            HeightRequest="50"
+            FontSize="18"
+            Clicked="BodyWeightHistory_Clicked" />
+
+        <!--<Button 
+            Text="Settings" 
+            BackgroundColor="OrangeRed"
+            TextColor="White"
+            CornerRadius="20"
+            WidthRequest="200"
+            HeightRequest="50"
+            FontSize="18"
+            Clicked="Settings_Clicked" />-->
+        
+    </VerticalStackLayout>
+</ContentPage>
